@@ -18,8 +18,14 @@
 
 
 def verbing(s):
-    """Your code goes here.  Edit this docstring."""
-    return
+    length = len(s)
+
+    if length > 2:
+        if s[-3:] == 'ing':
+            s += 'ly'
+        else:
+            s += 'ing'
+    return s
 
 
 # E. not_bad
@@ -31,8 +37,28 @@ def verbing(s):
 # So 'This dinner is not that bad!' yields:
 # This dinner is good!
 def not_bad(s):
-    """Your code goes here.  Edit this docstring."""
-    return
+
+    ###### ASK FOR HELP TOMORROW!!!!! (How to put '!' for 2nd response) ######
+    aight = s.find('not')
+    solid = s.find('bad')
+
+    # if aight > solid and solid > 0 and aight > 0:
+    #     s = s.replace(s[solid:(aight + 4)], 'good')
+    #     return s
+    # else:
+    #     return s
+
+    # if aight != -1 and solid != -1 and solid > aight:
+    #     s = s[:aight] + 'good' + s[solid + 3:]
+    #     return s
+    # else:
+    #     return s
+
+    if solid > aight:
+        s = s.replace(s[aight:(solid + 4)], 'good')
+
+    return s
+
 
 
 # F. front_back
@@ -43,8 +69,14 @@ def not_bad(s):
 # Given 2 strings, a and b, return a string of the form
 #  a-front + b-front + a-back + b-back
 def front_back(a, b):
-    """Your code goes here.  Edit this docstring."""
-    return
+    middle_a = len(a) / 2
+    middle_b = len(b) / 2
+
+    if len(a) % 2 == 1:
+        middle_a = middle_a + 1
+    if len(b) % 2 == 1:
+        middle_b = middle_b + 1
+    return a[:middle_a] + b[:middle_b] + a[middle_a:] + b[middle_b:]
 
 
 # Provided simple test() function used in main() to print
